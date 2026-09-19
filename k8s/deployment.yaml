@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-cloud-native-service
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: springboot-cloud-native-service
+
+  template:
+    metadata:
+      labels:
+        app: springboot-cloud-native-service
+
+    spec:
+      containers:
+        - name: springboot-cloud-native-service
+          image: YOUR_ECR_IMAGE
+          ports:
+            - containerPort: 8080
